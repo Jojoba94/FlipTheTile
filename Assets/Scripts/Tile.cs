@@ -6,60 +6,37 @@ public class Tile : MonoBehaviour
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Animator _animator;
 
-    [SerializeField] private GameObject _circleSign;
-    [SerializeField] private GameObject _crossSign;
-    [SerializeField] private GameObject _triangleSign;
-    [SerializeField] private GameObject _squareSign;
-
-    private Sign _selectedSign;
-    private Color _selectedColor;
     private GameObject _signObject = default(GameObject);
+    public Sign _sign;
 
-    private void SpawnSign(Sign sign)
+    public Color SelectedColor { get; set; }
+
+
+    private void SpawnSign()
     {
-        switch (_selectedSign)
-        {
-            case Sign.None:
-                return;
-            case Sign.Circle:
-                _signObject = _circleSign;
-                break;
-            case Sign.Cross:
-                _signObject = _crossSign;
-                break;
-            case Sign.Triangle:
-                _signObject = _triangleSign;
-                break;
-            case Sign.Square:
-                _signObject = _squareSign;
-                break;
-        }
-
-
+        _signObject = GameManager.Instance.GetSignObject(_sign);
         Instantiate(_signObject, transform.position, Quaternion.identity).transform.SetParent(_tilePlate.transform);
     }
 
     private void CheckPlayerChanged()
     {
-
         switch (GameManager.Instance.CurrentPlayer)
         {
             case Player.One:
-                _selectedSign = Sign.Circle;
-                _selectedColor = Color.red;
+                _sign = Sign.Circle;
+                SelectedColor = Color.red;
                 break;
             case Player.Two:
-                _selectedSign = Sign.Cross;
-                _selectedColor = Color.blue;
-
+                _sign = Sign.Cross;
+                SelectedColor = Color.blue;
                 break;
             case Player.Three:
-                _selectedSign = Sign.Triangle;
-                _selectedColor = Color.green;
+                _sign = Sign.Triangle;
+                SelectedColor = Color.green;
                 break;
             case Player.Four:
-                _selectedSign = Sign.Square;
-                _selectedColor = Color.yellow;
+                _sign = Sign.Square;
+                SelectedColor = Color.yellow;
                 break;
         }
     }
@@ -68,7 +45,7 @@ public class Tile : MonoBehaviour
     private void OnMouseEnter()
     {
         CheckPlayerChanged();
-        _renderer.material.color = _selectedColor;
+        _renderer.material.color = SelectedColor;
     }
 
     private void OnMouseExit()
@@ -82,7 +59,7 @@ public class Tile : MonoBehaviour
     {
         CheckPlayerChanged();
         if (_signObject == null && _signObject is null)
-            SpawnSign(_selectedSign);
+            SpawnSign();
 
         _animator.SetTrigger("TriggerFlip");
     }

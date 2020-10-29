@@ -4533,5 +4533,21 @@ PrefabInstance:
       propertyPath: CurrentPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6341215291755733836, guid: 43dda32910c434e4a8f0a981a4639167, type: 3}
+      propertyPath: _circleSign
+      value: 
+      objectReference: {fileID: 4907334073606810534, guid: ef33f7c4f82ada34eb08611808083b1d, type: 3}
+    - target: {fileID: 6341215291755733836, guid: 43dda32910c434e4a8f0a981a4639167, type: 3}
+      propertyPath: _crossSign
+      value: 
+      objectReference: {fileID: 5859635400547359045, guid: 63c7f1e250284ff489421995413ba66f, type: 3}
+    - target: {fileID: 6341215291755733836, guid: 43dda32910c434e4a8f0a981a4639167, type: 3}
+      propertyPath: _squareSign
+      value: 
+      objectReference: {fileID: 7604207136731361184, guid: 2173290fa329c27498e9a6517c34bb28, type: 3}
+    - target: {fileID: 6341215291755733836, guid: 43dda32910c434e4a8f0a981a4639167, type: 3}
+      propertyPath: _triangleSign
+      value: 
+      objectReference: {fileID: 1766501791162836895, guid: 7a4e49b2e9b57f6469d586e4616715b0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43dda32910c434e4a8f0a981a4639167, type: 3}
