@@ -11,7 +11,6 @@ public class Tile : MonoBehaviour
 
     public Color SelectedColor { get; set; }
 
-
     private void SpawnSign()
     {
         _signObject = GameManager.Instance.GetSignObject(_sign);
@@ -44,7 +43,6 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        CheckPlayerChanged();
         _renderer.material.color = SelectedColor;
     }
 
@@ -54,7 +52,6 @@ public class Tile : MonoBehaviour
         _renderer.material.color = Color.white;
     }
 
-
     private void OnMouseDown()
     {
         CheckPlayerChanged();
@@ -63,4 +60,28 @@ public class Tile : MonoBehaviour
 
         _animator.SetTrigger("TriggerFlip");
     }
+
+    private bool AdjacentTilePresent()
+    {
+        RaycastHit hit;
+        for (int i = 0; i < 8; i++)
+        {
+            Vector3 dir = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 45), 0, Mathf.Sin(Mathf.Deg2Rad * i * 45));
+
+            if (Physics.Raycast(transform.position, dir, out hit, 14.1f))
+            {
+                Debug.DrawRay(transform.position, dir * hit.distance, Color.yellow);
+                Debug.Log("Did Hit");
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, dir * 1000, Color.white);
+                Debug.Log("Did not Hit");
+            }
+        }
+
+
+        return true;
+    }
+
 }
