@@ -2,7 +2,7 @@
 
 public class GameManager : MonoBehaviour
 {
-    public Player CurrentPlayer;
+    public Sign CurrentPlayer;
 
     [SerializeField] private GameObject _circleSign;
     [SerializeField] private GameObject _crossSign;

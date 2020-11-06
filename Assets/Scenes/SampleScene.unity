@@ -4299,6 +4299,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42f4535461a94794ca28b6d315bbf85b, type: 3}
+--- !u!1 &2145227562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 872414659044899937, guid: 958c9b3809acbc34c936d3b3cc05af1e, type: 3}
+  m_PrefabInstance: {fileID: 3890713654751751672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2145227566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145227562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614c50056b005544fa3023453ef64e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedSign: 2
 --- !u!1001 &3095675370948747894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4420,10 +4438,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1840432762, guid: 42f4535461a94794ca28b6d315bbf85b, type: 3}
-      propertyPath: _selectedSign
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4171995675555167328, guid: 42f4535461a94794ca28b6d315bbf85b, type: 3}
       propertyPath: m_Name
       value: Tile
@@ -4531,7 +4545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6341215291755733836, guid: 43dda32910c434e4a8f0a981a4639167, type: 3}
       propertyPath: CurrentPlayer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6341215291755733836, guid: 43dda32910c434e4a8f0a981a4639167, type: 3}
       propertyPath: _circleSign

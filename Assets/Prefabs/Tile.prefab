@@ -124,8 +124,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4796959343655789978}
-  - component: {fileID: 1840432762}
   - component: {fileID: 1885663298}
+  - component: {fileID: 873128853}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -148,26 +148,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1840432762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4171995675555167328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614c50056b005544fa3023453ef64e3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selectedSign: 3
-  _tilePlate: {fileID: 492222940266351598}
-  _renderer: {fileID: 4601902648322275737}
-  _animator: {fileID: 1944072593}
-  _circleSign: {fileID: 4907334073606810534, guid: ef33f7c4f82ada34eb08611808083b1d, type: 3}
-  _crossSign: {fileID: 5859635400547359045, guid: 63c7f1e250284ff489421995413ba66f, type: 3}
-  _triangleSign: {fileID: 1766501791162836895, guid: 7a4e49b2e9b57f6469d586e4616715b0, type: 3}
-  _squareSign: {fileID: 7604207136731361184, guid: 2173290fa329c27498e9a6517c34bb28, type: 3}
 --- !u!54 &1885663298
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,3 +164,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &873128853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171995675555167328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6e5fad42ba254a937303a90a9bdf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedSign: 0
+  _tilePlate: {fileID: 492222940266351598}
+  _renderer: {fileID: 4601902648322275737}
+  _animator: {fileID: 1944072593}

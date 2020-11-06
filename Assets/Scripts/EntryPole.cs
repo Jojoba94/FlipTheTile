@@ -8,6 +8,7 @@ public class EntryPole : MonoBehaviour
     [SerializeField] private GameObject _signSocket;
     [SerializeField] private Renderer _flag1Renderer;
     [SerializeField] private Renderer _flag2Renderer;
+    [SerializeField] private Renderer _tileRenderer;
 
     private void Start()
     {
