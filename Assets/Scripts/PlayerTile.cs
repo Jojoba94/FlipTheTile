@@ -18,7 +18,7 @@ public class PlayerTile : Tile
 
     private void CheckPlayerChanged()
     {
-        switch (GameManager.Instance.CurrentPlayer)
+        switch (GameManager.Instance.Players.Current.Sign)
         {
             case Sign.Circle:
                 SelectedColor = Color.red;
@@ -59,11 +59,12 @@ public class PlayerTile : Tile
         if (!AdjacentTilePresent())
             return;
 
-        SelectedSign = GameManager.Instance.CurrentPlayer;
+        SelectedSign = GameManager.Instance.Players.Current.Sign;
 
         if (_signObject == null && _signObject is null)
             SpawnSign();
 
+        GameManager.Instance.Players.MoveNext();
         _animator.SetTrigger("TriggerFlip");
     }
 
@@ -76,7 +77,7 @@ public class PlayerTile : Tile
             {
                 Debug.DrawRay(transform.position, dir * hit.distance, Color.yellow);
                 Tile otherTile = hit.transform.GetComponent<Tile>();
-                if (otherTile != null && otherTile.SelectedSign == GameManager.Instance.CurrentPlayer && otherTile.SelectedSign != Sign.None)
+                if (otherTile != null && otherTile.SelectedSign == GameManager.Instance.Players.Current.Sign && otherTile.SelectedSign != Sign.None)
                     return true;
             }
         }

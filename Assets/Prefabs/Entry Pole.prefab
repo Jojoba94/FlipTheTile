@@ -426,10 +426,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356fc240db1981e4cbb0e485307bae7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedSign: 3
+  SelectedSign: 3
   _signSocket: {fileID: 2660526681481217002}
   _flag1Renderer: {fileID: 266138261}
   _flag2Renderer: {fileID: 684425931}
+  _tileRenderer: {fileID: 730613825634908568}
 --- !u!1 &2660526681481217002
 GameObject:
   m_ObjectHideFlags: 0

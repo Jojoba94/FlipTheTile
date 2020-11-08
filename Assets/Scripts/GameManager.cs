@@ -1,14 +1,17 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Sign CurrentPlayer;
+    [SerializeField] private List<Player> _players;
 
     [SerializeField] private GameObject _circleSign;
     [SerializeField] private GameObject _crossSign;
     [SerializeField] private GameObject _triangleSign;
     [SerializeField] private GameObject _squareSign;
 
+    public NavigationList<Player> Players { get; set; }
 
     private void Awake()
     {
@@ -19,6 +22,10 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        Players = new NavigationList<Player>(_players);
+    }
 
     public static GameManager Instance { get; private set; }
 
