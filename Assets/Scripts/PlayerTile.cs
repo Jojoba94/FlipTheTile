@@ -4,16 +4,31 @@ using UnityEngine;
 
 public class PlayerTile : Tile
 {
-    [SerializeField] private GameObject _tilePlate;
+    [SerializeField] private GameObject _tilePlateLevel1;
+    [SerializeField] private GameObject _tilePlateLevel2;
+    [SerializeField] private GameObject _tilePlateLevel3;
+
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Animator _animator;
-
     private GameObject _signObject = default(GameObject);
+
+    public TileLevel Level { get; set; }
 
     private void SpawnSign()
     {
         _signObject = GameManager.Instance.GetSignObject(SelectedSign);
-        Instantiate(_signObject, transform.position, Quaternion.identity).transform.SetParent(_tilePlate.transform);
+        Instantiate(_signObject, transform.position + new Vector3(0, -0.65f, 0), Quaternion.identity).transform.SetParent(_tilePlateLevel1.transform);
+
+        Level = GetRandomTileLevel();
+        if (Level == TileLevel.Two)
+        {
+            _tilePlateLevel2.SetActive(true);
+        }
+        else if (Level == TileLevel.Three)
+        {
+            _tilePlateLevel2.SetActive(true);
+            _tilePlateLevel3.SetActive(true);
+        }
     }
 
     private void CheckPlayerChanged()
@@ -83,5 +98,17 @@ public class PlayerTile : Tile
         }
 
         return false;
+    }
+
+    private TileLevel GetRandomTileLevel()
+    {
+        float rng = Random.Range(0f, 1f);
+        Debug.Log(rng);
+        if (rng < 0.2f)
+            return TileLevel.Three;
+        else if (rng < 0.4f)
+            return TileLevel.Two;
+        else
+            return TileLevel.One;
     }
 }
