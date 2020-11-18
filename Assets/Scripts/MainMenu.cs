@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +16,12 @@ public class MainMenu : MonoBehaviour
         _image = _ScreenShade.GetComponent<Image>();
     }
 
-    public void Play()
+    public async void Play()
     {
         _ScreenShade.SetActive(true);
         StartCoroutine(FadeIn());
+        await UniTask.Delay(700);
+        _ScreenShade.SetActive(false);
     }
 
     private IEnumerator FadeIn()
