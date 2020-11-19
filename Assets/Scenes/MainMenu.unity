@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ScreenShade: {fileID: 503615284}
-  curve:
+  _curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
