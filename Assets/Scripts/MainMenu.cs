@@ -24,6 +24,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(Stage.SampleScene.ToString());
     }
 
+    public void Quit()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
+
     private async Task FadeIn()
     {
         float t = 1f;

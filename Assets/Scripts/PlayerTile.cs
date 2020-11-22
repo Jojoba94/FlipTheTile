@@ -103,7 +103,6 @@ public class PlayerTile : Tile
     private TileLevel GetRandomTileLevel()
     {
         float rng = Random.Range(0f, 1f);
-        Debug.Log(rng);
         if (rng < 0.2f)
             return TileLevel.Three;
         else if (rng < 0.4f)

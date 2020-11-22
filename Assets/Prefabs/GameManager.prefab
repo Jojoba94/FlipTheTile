@@ -43,3 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410d418bdb246d8489c2a89bfbaac7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _players:
+  - Name: 11
+    Sign: 2
+  - Name: 22
+    Sign: 3
+  _circleSign: {fileID: 4907334073606810534, guid: ef33f7c4f82ada34eb08611808083b1d, type: 3}
+  _crossSign: {fileID: 5859635400547359045, guid: 63c7f1e250284ff489421995413ba66f, type: 3}
+  _triangleSign: {fileID: 1766501791162836895, guid: 7a4e49b2e9b57f6469d586e4616715b0, type: 3}
+  _squareSign: {fileID: 7604207136731361184, guid: 2173290fa329c27498e9a6517c34bb28, type: 3}

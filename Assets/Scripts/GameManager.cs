@@ -19,15 +19,31 @@ public class GameManager : MonoBehaviour
             throw new System.Exception("There should not be more than 1 instance of game manager in scene");
         Instance = this;
 
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        Players = new NavigationList<Player>(_players);
-    }
+    //private void Start()
+    //{
+    //    Players = new NavigationList<Player>(_players);
+    //}
 
     public static GameManager Instance { get; private set; }
+
+    public void SelectPlayerMode(int numPlayers)
+    {
+        if (numPlayers <= 1 || numPlayers > 4)
+            throw new System.Exception("Player Options must range from 2 to 4");
+
+        _players = new List<Player>();
+        _players.Add(new Player($"Player 1", (Sign)1));
+
+        for (int i = 2; i <= numPlayers; i++)
+        {
+            _players.Add(new Player($"Player {i}", (Sign)i));
+        }
+
+        Players = new NavigationList<Player>(_players);
+    }
 
     public GameObject GetSignObject(Sign sign)
     {
