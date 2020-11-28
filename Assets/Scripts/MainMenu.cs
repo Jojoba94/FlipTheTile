@@ -1,5 +1,8 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using Assets.Scripts.Utilities;
+using Cysharp.Threading.Tasks;
+using System;
 using System.Threading.Tasks;
+using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +11,13 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _ScreenShade;
     [SerializeField] private AnimationCurve _curve;
+    [SerializeField] private Button _startButton;
+    [SerializeField] private Button _quitButton;
+
+    public ReactiveCommand PlayCommand { get; set; }
+    public ReactiveCommand QuitCommand { get; set; }
+
+    public ReactiveProperty<bool> CanStart { get; set; } = new ReactiveProperty<bool>(false);
 
     private Image _image;
 
@@ -15,19 +25,27 @@ public class MainMenu : MonoBehaviour
     {
         _ScreenShade.SetActive(false);
         _image = _ScreenShade.GetComponent<Image>();
+        BindCommands();
     }
 
-    public async void Play()
+    private void BindCommands()
     {
-        _ScreenShade.SetActive(true);
-        await FadeIn();
-        SceneManager.LoadScene(Stage.SampleScene.ToString());
-    }
+        PlayCommand = ReactiveCommandExtension.Create(
+            async () =>
+            {
+                _ScreenShade.SetActive(true);
+                await FadeIn();
+                SceneManager.LoadScene(Stage.SampleScene.ToString());
+            }, CanStart);
 
-    public void Quit()
-    {
-        Debug.Log("Quit");
-        Application.Quit();
+        PlayCommand.BindTo(_startButton);
+
+        QuitCommand = ReactiveCommandExtension.CreateAndBind(
+            () =>
+            {
+                Debug.Log("Quit");
+                Application.Quit();
+            }, Observable.Return<bool>(false), _quitButton);
     }
 
     private async Task FadeIn()
