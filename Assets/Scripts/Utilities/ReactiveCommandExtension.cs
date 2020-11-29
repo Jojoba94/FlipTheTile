@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UniRx;
 using UnityEngine.UI;
 
@@ -18,7 +14,6 @@ namespace Assets.Scripts.Utilities
             return sourceCommand;
         }
 
-
         public static ReactiveCommand CreateAndBind(Action action, IObservable<bool> prop, Button button)
         {
             ReactiveCommand sourceCommand = prop.ToReactiveCommand();
@@ -26,6 +21,5 @@ namespace Assets.Scripts.Utilities
             sourceCommand.BindTo(button);
             return sourceCommand;
         }
-
     }
 }
