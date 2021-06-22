@@ -31,7 +31,7 @@ public class PlayerTile : Tile
         }
     }
 
-    private void CheckPlayerChanged()
+    private void UpdateSelectedColor()
     {
         switch (GameManager.Instance.Players.Current.Sign)
         {
@@ -60,7 +60,7 @@ public class PlayerTile : Tile
             return;
         }
 
-        CheckPlayerChanged();
+        UpdateSelectedColor();
         _renderer.material.color = SelectedColor;
     }
 
@@ -85,6 +85,9 @@ public class PlayerTile : Tile
 
     private bool AdjacentTilePresent()
     {
+        if (SelectedSign != Sign.None)
+            return false;
+
         for (int i = 0; i < 8; i++)
         {
             Vector3 dir = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 45), 0, Mathf.Sin(Mathf.Deg2Rad * i * 45));
