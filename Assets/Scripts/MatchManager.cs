@@ -1,25 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MatchManager : MonoBehaviour
 {
-    private int _timePeriodSeconds = 60;
+    [SerializeField]
+    private Text _gameTimeText;
 
-    private async void Start()
-    {
-        await CountDown();
-    }
+    private float _timePeriodSeconds = 600;
 
-    private async Task CountDown()
+    private void Update()
     {
-        for (int i = 0; i < _timePeriodSeconds; i++)
+        if (_timePeriodSeconds > 0f)
         {
-            await Task.Delay(1000);
-            //Debug.Log(Time.time);
+            _gameTimeText.text = FormatTime(_timePeriodSeconds);
+            _timePeriodSeconds -= Time.deltaTime;
         }
     }
 
+    private string FormatTime(float time)
+    {
+        int intTime = (int)time;
+        int minutes = intTime / 60;
+        int seconds = intTime % 60;
+        float fraction = time * 1000;
+        fraction = (fraction % 1000);
+        string timeText = $"{minutes:00}:{seconds:00}:{fraction:000}";
+        return timeText;
+    }
 
 }
